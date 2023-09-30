@@ -11,8 +11,8 @@ Paramaters:
 
 | Name  | type | Default | Values | Opional/Required | Comments |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
-| appDeploymentTarget | string | | | Required | |
-| key | string | | | Required | |
+| serviceconnection | string | | | Required | the service connection to be used |
+
 
 
 These parameters provide multiple use case options for the pipeline, enable/disable flags for the utilization of different templates as per the requirements.
@@ -28,7 +28,7 @@ You can directly call a particular template as per the requirement. for example:
   repositories:
     - repository: Template
       type: github
-      name: your_username/AzureCiNodeJS.yml@Template
+      name: your_username/<repo-name>
       ref: <respective branch name>
       endpoint: 'githubServiceConnectioNname'
 
@@ -36,7 +36,7 @@ jobs:
 - job: CI
   displayName: "Run lint, build"
   steps:
-  - template: templates/setApiAndApiManagementVariables.yml
+  - template: AzureCiNodeJS.yml@Template
         parameters:
           ${{ insert }}: ${{ parameters }}
   
