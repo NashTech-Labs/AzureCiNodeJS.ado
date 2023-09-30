@@ -31,12 +31,12 @@ You can directly call a particular template as per the requirement. for example:
       endpoint: 'githubServiceConnectioNname'
 
 jobs:
-- job: CI
-  displayName: "Run lint, build"
-  steps:
-  - template: AzureCiNodeJS.yml@Template
-    parameters:
-      ${{ insert }}: ${{ parameters }}
+  - job: CI
+    displayName: "Run lint, build"
+    steps:
+    - template: AzureCiNodeJS.yml@Template
+      parameters:
+        ${{ insert }}: ${{ parameters }}
   
 Make sure to adjust the repository name, branch name, and parameter values according to your project's requirements.
 
